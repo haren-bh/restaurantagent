@@ -1,5 +1,5 @@
 import vertexai
-from .agent import root_agent
+from ..agent import root_agent
 import os
 import glob # To easily find the wheel file
 

@@ -21,19 +21,21 @@ def create_generic_search_agent() -> LlmAgent:
     )
     return agent
 
-menu_gatherer = LlmAgent(
-    name="menu_gatherer",
-    model="gemini-2.5-pro",
-    description="An agent that can find and extract menu information from a restaurant's website.",
-    instruction=(
-        "You are an expert at finding and extracting menu information from restaurant websites. "
-        "Given a restaurant's website URL, you should first use the 'find_internal_links' find the menu present within that website"
-        "Present that menu in a nicely formatted format"
-        "Include the menu url in the response as well"
-    ),
-    tools=[get_menu],
-    output_key="menu_items"
-)
+def create_menu_gatherer_agent():
+    menu_gatherer = LlmAgent(
+        name="menu_gatherer",
+        model="gemini-2.5-pro",
+        description="An agent that can find and extract menu information from a restaurant's website.",
+        instruction=(
+            "You are an expert at finding and extracting menu information from restaurant websites. "
+            "Given a restaurant's website URL, you should first use the 'find_internal_links' find the menu present within that website"
+            "Present that menu in a nicely formatted format"
+            "Include the menu url in the response as well"
+        ),
+        tools=[get_menu],
+        output_key="menu_items"
+    )
+    return menu_gatherer
 
 
 def create_restaurant_finder_agent() -> LlmAgent:
@@ -54,6 +56,7 @@ def create_restaurant_finder_agent() -> LlmAgent:
         ),
         # Tools are provided in a list. The ADK inspects the function signature.
         tools=[find_restaurants],
+        sub_agents=[create_menu_gatherer_agent()],
         output_key="restaurant_search_results" 
     )
     return agent

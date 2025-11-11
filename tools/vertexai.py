@@ -3,7 +3,8 @@ from google import genai
 from google.genai import types
 from typing import Optional
 import logging
-from ..settings import *
+from dotenv import load_dotenv
+#from ..settings import *
 
 
 # Get a logger for this module
@@ -36,8 +37,8 @@ def call_gemini(
     """
     try:
         logger.info(f"Calling Gemini with prompt: '{prompt}' and URL: '{url}'")
-        project_id = project or os.environ.get("GOOGLE_CLOUD_PROJECT") or GOOGLE_CLOUD_PROJECT
-        location_name = location or os.environ.get("GOOGLE_CLOUD_LOCATION") or GOOGLE_CLOUD_LOCATION
+        project_id = project or os.getenv("GOOGLE_CLOUD_PROJECT")
+        location_name = location or os.getenv("GOOGLE_CLOUD_LOCATION")
 
 
         if not project_id or not location_name:

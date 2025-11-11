@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-window">
+            <div class="chat-header">
+                <h2>Chat with the Agent (User: {{ username }})</h2>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be appended here -->
+            </div>
+            <div class="waiting-animation">
+                <div class="spinner"></div>
+                <span>The agent is thinking...</span>
+            </div>
+            <div class="chat-input">
+                <form id="chat-form">
+                    <input type="text" id="message-input" placeholder="Type your message...">
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+        <div class="log-panel">
+            <h2>Server Log</h2>
+            <pre id="log-content"></pre>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

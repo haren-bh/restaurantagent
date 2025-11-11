@@ -23,7 +23,7 @@ def find_restaurants(location:str, radius_km:int=1):
         str: A JSON string representing a list of restaurants with detailed information.
     """
     logger.info(f"Finding restaurants near '{location}' with radius {radius_km}km.")
-    api_key = os.environ.get("GOOGLE_MAPS_API_KEY") or GOOGLE_MAPS_API_KEY
+    api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 
     if not api_key:
         raise ValueError("Google Maps API key not found. Make sure to create a .env file with GOOGLE_MAPS_API_KEY=<YOUR_API_KEY>.")
@@ -78,6 +78,7 @@ def find_restaurants(location:str, radius_km:int=1):
     logger.info(f"Found {len(restaurants)} restaurants. Returning JSON output.")
     return json.dumps(restaurants, indent=4)
 
+'''
 if __name__ == '__main__':
     # Example usage:
     # 1. Create a .env file in the root of the project
@@ -107,3 +108,4 @@ if __name__ == '__main__':
                     print(f"  - {review.get('author_name')}: \"{review.get('text')}\"")
     else:
         print(f"No restaurants found within {radius}km of {location}.")
+'''

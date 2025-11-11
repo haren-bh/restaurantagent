@@ -51,12 +51,17 @@ def get_menu(url: str)->str:
 
     #get menu items
     menulink=""
-    menuimages=[]
     menuitems=""
+    menu_found_count = 0
     for link in internal_links:
         mitems,mlink=get_webpage_text(link)
-        menulink+=mlink
-        menuitems+=mitems
+        if mitems:
+            menu_found_count += 1
+            menulink+=mlink
+            menuitems+=mitems
+            if menu_found_count >= 3:
+                logger.info(f"Found menu items from 3 links. Breaking loop.")
+                break
         
     return menuitems+"\n"+menulink
 
