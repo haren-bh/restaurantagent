@@ -183,6 +183,11 @@ Cloud Shell Editor の場合は以下のような黒い画面です。
 
 ![terminal](img/terminal.png)
 
+> aside negative 
+> **注意** ~/gcp-getting-started-lab-jp のディレクトリで以下を実行します。
+> ディレクトリがあっているのか注意してください。
+> 違うディレクトリーの場合は cd ~/gcp-getting-started-lab-jp を先に実行してください。
+
 ```bash
 uv sync
 source .venv/bin/activate
@@ -212,6 +217,11 @@ Qwiklab を利用する方は Qwiklab の手順画面の以下のパネルから
 ![Qwiklab](img/qwiklab_project_id.png)
 
 👉 ターミナルのディレクトリが gcp-getting-started-jp にあることを確認してセットアップスクリプトを実行してください。
+
+> aside negative 
+> **注意** ~/gcp-getting-started-lab-jp のディレクトリで以下を実行します。
+> ディレクトリがあっているのか注意してください。
+> 違うディレクトリーの場合は cd ~/gcp-getting-started-lab-jp を先に実行してください。
 
 ```bash
 chmod +x setup_env.sh
@@ -367,7 +377,14 @@ root_agent = LlmAgent(
 
 ### Step 4: エージェントの動作を確認する
 
-ターミナルで以下を実行してください
+ターミナルで以下を実行してください。
+
+> aside negative 
+> **注意** ~/gcp-getting-started-lab-jp/01-starter のディレクトリで以下を実行します。
+> ディレクトリがあっているのか注意してください。
+> 違うディレクトリーの場合は cd ~/gcp-getting-started-lab-jp/01-starter を先に実行してください。
+
+
 ```web
 adk web
 ```
@@ -698,6 +715,13 @@ Vertex AI Memory サービスを使用する前に、Google Cloud で Agent Engi
 
 👉 デプロイメントスクリプトを実行：
 
+> aside negative 
+> **注意** ~/gcp-getting-started-lab-jp/01-starter のディレクトリで以下を実行します。
+> ディレクトリがあっているのか注意してください。
+> 違うディレクトリーの場合は cd ~/gcp-getting-started-lab-jp/01-starter を先に実行してください。
+
+
+
 ```bash
 python create_agent_engine.py
 ```
@@ -820,6 +844,13 @@ root_agent = LlmAgent(
 ```
 Adk web を Ctrl + C 押して停止して、以下のコマンドで再起動します。
 agent_engine_id は先ほど取得した Agent Engine の ID です。
+
+> aside negative 
+> **注意** ~/gcp-getting-started-lab-jp/01-starter のディレクトリで以下を実行します。
+> ディレクトリがあっているのか注意してください。
+> 違うディレクトリーの場合は cd ~/gcp-getting-started-lab-jp/01-starter を先に実行してください。
+
+
 
 ```python
 adk web --memory_service_uri="agentengine://agent_engine_id"
@@ -1124,6 +1155,13 @@ Duration: 0:08:00
 ### Step 1: サーバーを起動
 
 👉 Web サーバーを実行：
+
+> aside negative 
+> **注意** ~/gcp-getting-started-lab-jp/01-starter のディレクトリで以下を実行します。
+> ディレクトリがあっているのか注意してください。
+> 違うディレクトリーの場合は cd ~/gcp-getting-started-lab-jp/01-starter を先に実行してください。
+
+
 
 ```bash
 python main.py
